@@ -1,8 +1,6 @@
 FROM php:7.1.7-apache
 MAINTAINER Johns Beharry <johns@peakshift.com>
 
-COPY . /src
-
 # PHP Config + WP CLI sudo adapter
 COPY config/php.ini /usr/local/etc/php/
 COPY scripts/wp-su.sh /bin/wp
@@ -42,11 +40,6 @@ RUN apt-get update \
   && php composer-setup.php \
   && php -r "unlink('composer-setup.php');" \
   && mv composer.phar /bin/composer
-
-# Prepare Web Server
-# RUN mv /src/app /var/www/html \
-#   && sudo chown -R www-data:www-data /var/www/html \
-#   && bash /bin/wp core download
 
 WORKDIR /src
 
