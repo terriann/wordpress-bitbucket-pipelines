@@ -19,9 +19,8 @@ RUN apt-get update \
     libpng12-dev \
   # PHP Extentions
   && docker-php-ext-install mysqli \
-  && docker-php-ext-install -j$(nproc) iconv mcrypt \
+  && docker-php-ext-install -j$(nproc) iconv mcrypt zip gd \
   && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-  && docker-php-ext-install -j$(nproc) gd \
   && a2enmod rewrite \
   # NodeJS
   && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
