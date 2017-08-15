@@ -13,6 +13,9 @@ RUN apt-get update \
     sudo \
     build-essential \
     git-core \
+    nasm \
+    autoconf \
+    bison \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
     libmcrypt-dev \
