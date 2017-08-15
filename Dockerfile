@@ -25,9 +25,12 @@ RUN apt-get update \
   && docker-php-ext-install -j$(nproc) iconv mcrypt zip gd \
   && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
   && a2enmod rewrite \
+  # Ruby
+  && sudo apt-get install -y ruby-full \
+  && sudo gem install sass \
   # NodeJS
   && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
-  && apt-get install -y nodejs \
+  && sudo apt-get install -y nodejs \
   && npm install -g grunt-cli \
   && npm install -g bower \
   # Codeception
