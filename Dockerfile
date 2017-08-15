@@ -40,6 +40,6 @@ RUN apt-get update \
   && php -r "unlink('composer-setup.php');" \
   && mv composer.phar /bin/composer
 
-WORKDIR /src
+WORKDIR /var/src
 
 EXPOSE 80
