@@ -5,6 +5,7 @@ MAINTAINER Johns Beharry <johns@peakshift.com>
 COPY config/php.ini /usr/local/etc/php/
 COPY scripts/wp-su.sh /bin/wp
 
+ENV DEBIAN_FRONTEND noninteractive
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
 RUN apt-get update \
@@ -25,6 +26,8 @@ RUN apt-get update \
   && docker-php-ext-install -j$(nproc) iconv mcrypt zip gd \
   && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
   && a2enmod rewrite \
+  # MySQL
+  && apt-get install -y mysql-server --no-install-recommends \
   # Ruby
   && sudo apt-get install -y ruby-full \
   && sudo gem install sass \
