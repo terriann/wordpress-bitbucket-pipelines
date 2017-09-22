@@ -28,6 +28,12 @@ RUN apt-get update \
   && a2enmod rewrite \
   # MySQL
   && apt-get install -y mysql-server --no-install-recommends \
+  # Python
+  && apt-get install -y python \
+  # AWS CLI
+  && curl -O https://bootstrap.pypa.io/get-pip.py \
+  && python get-pip.py \
+  && pip install awscli \
   # Ruby
   && sudo apt-get install -y ruby-full \
   && sudo gem install sass \
@@ -43,8 +49,7 @@ RUN apt-get update \
   && curl -o /bin/wp-cli.phar https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
   && chmod +x /bin/wp-cli.phar /bin/wp \
   # Composer
-  && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
-  && php -r "if (hash_file('SHA384', 'composer-setup.php') === '669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
+  && php -r "copy('https://raw.githubusercontent.com/composer/getcomposer.org/4449596339f6ee0b9bbe21117eb7998fd46fbd25/web/installer', 'composer-setup.php');" \
   && php composer-setup.php \
   && php -r "unlink('composer-setup.php');" \
   && mv composer.phar /bin/composer
