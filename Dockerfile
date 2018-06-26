@@ -1,5 +1,5 @@
 FROM php:7.1.7-apache
-MAINTAINER Johns Beharry <johns@peakshift.com>
+MAINTAINER Terri Swallow <terri.ann.s@gmail.com>
 
 # PHP Config + WP CLI sudo adapter
 COPY config/php.ini /usr/local/etc/php/
