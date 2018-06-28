@@ -36,13 +36,13 @@ RUN apt-get update \
   && pip install --upgrade pip \
   && pip install awsebcli --upgrade \
   # Ruby
-  && sudo apt-get install -y ruby-full \
-  && sudo gem install sass \
+  #&& sudo apt-get install -y ruby-full \
+  #&& sudo gem install sass \
   # NodeJS
-  && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
-  && sudo apt-get install -y nodejs \
-  && npm install -g grunt-cli \
-  && npm install -g bower \
+  #&& curl -sL https://deb.nodesource.com/setup_8.x | bash - \
+  #&& sudo apt-get install -y nodejs \
+  #&& npm install -g grunt-cli \
+  #&& npm install -g bower \
   # Codeception
   #&& sudo curl -LsS http://codeception.com/codecept.phar -o /bin/codecept \
   #&& sudo chmod a+x /bin/codecept \
